@@ -2,14 +2,15 @@
     <label for="{{ $field }}">
         {{ $label }}
     </label>
-    <input 
+    <textarea
         class="@if($errors->has($field)) error @endif" 
         name="{{ $field }}" 
         id="{{ $field }}" 
         type="text" 
         placeholder="{{ isset($placeholder) ? $placeholder : '' }}"
-        value="{{ old($field) }}"
         {{ isset($required) ? 'required' : '' }}>
+{{ old($field) }}
+    </textarea>
     @if($errors->has($field))
         @foreach($errors->get($field) as $error)
             <p class="error-text">{!! $error !!}</p>
